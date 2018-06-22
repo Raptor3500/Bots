@@ -77,8 +77,7 @@ bot.on("message", async message => {
         } else {
             message.channel.send('w o t')
         }
-
-    }
+        }
        
 const Discord = require("discord.js");
 
