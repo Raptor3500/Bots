@@ -43,13 +43,16 @@ bot.on("message", async message => {
 
     if(message.content.startsWith(`${prefix}kick`)){
 
-        //!kick @daeshan askin for it
+        //!kick @unrealism Cause fuck you
     
         let kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
         if(!kUser) return message.channel.send("Can't find user!");
         let kReason = args.join(" ").slice(22);
         if(!message.member.hasPermission("KICK_MEMBERS")) return message.channel.send("no");
         if(kUser.hasPermission("KICK_MEMBERS")) return message.channel.send("That person can't be kicked!");
+        if(kReason == '') {
+            kReason = 'No reason was stated.'
+        }
     
         let kickEmbed = new Discord.RichEmbed()
             .setDescription("~Kick~")
@@ -68,6 +71,11 @@ bot.on("message", async message => {
 
     if(message.content.startsWith(`${prefix}FUCK`)) {
         message.channel.send('Oh yes anything for you ;))))');
+        if(message.author.id === '419388965238472714') {
+            message.channel.send('Nice try, pervert boi.', {
+                file: './images/unknown (14).png'
+            })
+        }
     }
        
 
