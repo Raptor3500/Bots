@@ -39,26 +39,29 @@ bot.on("message", async message => {
       message.channel.send('Anything for you.');
       (msg => client.destroy());
       (() => client.login(settings.token));
-    }
-if(cmd === '${prefix}kick){
+    };
+
+    if(command === `${prefix}kick`) {
    
-   //!kick @unrealism why not
+        //!kick @unrealism why not
    
-   let kUser = message.guilf.member(message.mentions.user.first() || message.guild.members.get(args[0]));
-   if(!kUser) return message.channel.send("Can't find user!")
-   let kReason = args.join(" ").slice(22);
+        let kUser = message.guild.member(message.mentions.user.first() || message.guild.members.get(args[0]));
+        if(!kUser) return message.channel.send("Can't find user!")
+        let kReason = args.join(" ").slice(22);
     
-   let kickembed = new Discord.RichEmbed()
-   .setDescription("~kick~")
-   .setColor("#a80b00")
-   .addFeild("Kicked User", `${kUser} with ID ${kUser.id}`)
-   .addField("Kicked By", `<@${message.author.id}> with ID ${message.author.id}`)
+        let kickembed = new Discord.RichEmbed()
+            .setDescription("~kick~")
+            .setColor("#a80b00")
+            .addFeild("Kicked User", `${kUser} with ID ${kUser.id}`)
+            .addField("Kicked By", `<@${message.author.id}> with ID ${message.author.id}`);
+
+        message.channel.send(kickembed);
    
    return;
-   }
+   };
        
        
-    // Commands will start here.   
+
 });
 
 bot.login(process.env.Token)
