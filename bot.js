@@ -115,6 +115,12 @@ bot.on("message", async message => {
             };
         }    
     }
+    
+    if(message.content.startsWith(`${prefix}say`)) {
+        message.delete(1)
+        let botmessage = args.join(' ');
+        message.channel.send(botmessage);
+    }
        
 
 });
