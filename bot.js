@@ -37,8 +37,8 @@ bot.on("message", async message => {
           message.channel.send('no');
         return}
       message.channel.send('Requiping...');
-      (msg => client.destroy());
-      (() => client.login(settings.token));
+      (msg => bot.destroy());
+      (() => bot.login(settings.token));
     };
 
     if(message.content.startsWith(`${prefix}kick`)){
@@ -124,7 +124,7 @@ bot.on("message", async message => {
 
     if(message.content.startsWith(`${prefix}setgame`)) {
         let playermessage = args.join(' ').slice(22);
-        let game = messageArray[1];
+        let game = args[0];
         if(game == 'playing') {
             bot.user.setPresence({
                 game: playermessage,
