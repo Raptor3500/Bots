@@ -41,7 +41,7 @@ bot.on("message", async message => {
       (() => client.login(settings.token));
     };
 
-    if(command === `${prefix}kick`){
+    if(message.content.startsWith(`${prefix}kick`)){
 
         //!kick @daeshan askin for it
     
