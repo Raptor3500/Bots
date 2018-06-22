@@ -41,20 +41,4 @@ bot.on("message", async message => {
       (() => client.login(settings.token));
     }
 
-    // Commands will start here.    
-});
-var namelist = "";
-var desclist = "";
-var usage = "";
-
-let result = jsfiles.forEach((f, i) => {
-    let props = require(`./${f}`);
-    namelist = props.help.name;
-    desclist = props.help.description;
-    usage = props.help.usage;
-
-    // send help text
-    message.author.send(`**${namelist}** \n${desclist} \n${usage}`);
-});
-
-bot.login(process.env.Token);
+    // Commands will start here.   
