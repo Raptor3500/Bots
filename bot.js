@@ -70,7 +70,7 @@ bot.on("message", async message => {
     }
 
     if(message.content.startsWith(`${prefix}FUCK`)) {
-        if(!message.author.id === '419388965238472714') {
+        if(message.author.id !== '419388965238472714') {
             message.channel.send('Oh yes anything for you ;))))', {
                 file: './images/unknown (14).png'
             });
