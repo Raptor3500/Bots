@@ -69,7 +69,7 @@ bot.on("message", async message => {
         return;
     }
 
-    if(message.content.startsWith(`${prefix}fuck`)) {
+    if(message.content.startsWith(`${prefix}FUCK`)) {
         if(message.author.id !== '419388965238472714') {
             message.channel.send('Oh yes anything for you ;))))', {
                 file: './images/unknown (14).png'
@@ -80,21 +80,7 @@ bot.on("message", async message => {
 
     }
        
+
 });
 
 bot.login(process.env.Token)
-
-const Discord = require("discord.js");
-
-module.exports.run = async (bot, message, args) => {
-
-      if(!message.member.hasPermission("ADMINISTRATOR")) return;
-      const sayMessage = args.join(" ");
-      message.delete().catch();
-      message.channel.send(sayMessage);
-
-}
-
-module.exports.help = {
-  name: "say"
-}
