@@ -77,7 +77,6 @@ bot.on("message", async message => {
         } else {
             message.channel.send('w o t')
         }
-        
          if(command === `${prefix}setstatus`) {
         if(message.author.id === ownerID) {
             // Sets the bot's status to idle
