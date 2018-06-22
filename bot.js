@@ -44,4 +44,4 @@ bot.on("message", async message => {
     // Commands will start here.    
 });
 
-bot.login(botSettings.token);
+bot.login(process.env.Token);

@@ -1,4 +1,3 @@
 {
-    "token": "process.env.Token",
     "prefix": "e."
 }
