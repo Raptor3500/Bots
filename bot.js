@@ -77,7 +77,10 @@ bot.on("message", async message => {
         } else {
             message.channel.send('w o t')
         }
- 
+
+    }
+       
+
 });
 
 bot.login(process.env.Token)
