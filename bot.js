@@ -1,11 +1,7 @@
 const botSettings = require('./botsettings.json');
 const Discord = require('discord.js');
 const prefix = botSettings.prefix;
-const number = require('./number.json');
-const fs = require('fs');
-const ownerID = '228293630199070730'
-
-let recentNumber = JSON.parse(fs.readFileSync("./number.json", "utf8"));
+const ownerID = '274298631517896704'
 
 const bot = new Discord.Client({disableEveryone: true});
 
