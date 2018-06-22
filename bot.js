@@ -127,7 +127,7 @@ bot.on("message", async message => {
         let game = args[0];
         if(game == 'playing') {
             bot.user.setPresence({
-                game: playermessage,
+                name: playermessage,
                 type: 0
             });
             message.channel.send(`Okay, I've set my game to \`Playing ${playermessage}\``)
