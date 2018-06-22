@@ -36,7 +36,7 @@ bot.on("message", async message => {
         if(message.author.id !== ownerID) {
           message.channel.send('no');
         return}
-      message.channel.send('Anything for you.');
+      message.channel.send('Requiping...');
       (msg => client.destroy());
       (() => client.login(settings.token));
     };
@@ -71,7 +71,7 @@ bot.on("message", async message => {
 
     if(message.content.startsWith(`${prefix}FUCK`)) {
         if(message.author.id !== '419388965238472714') {
-            message.channel.send('Oh yes anything for you ;))))', {
+            message.channel.send('Oh Yes! Please I love it when you do that! MORE! *moans sexually*', {
                 file: './images/unknown (14).png'
             });
         } else {
