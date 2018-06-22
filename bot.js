@@ -31,7 +31,17 @@ bot.on("message", async message => {
     let command = messageArray[0];
     let args = messageArray.slice(1);
 
-	// Commands will start here.
+    //restart - because Heroku is fun
+    if(message.content.startsWith(prefix + 'restart')) {
+        if(message.author.id !== ownerID) {
+          message.channel.send('no');
+        return}
+      message.channel.send('Restarting...');
+      (msg => client.destroy());
+      (() => client.login(settings.token));
+    }
+
+    // Commands will start here.    
 });
 
 bot.login(botSettings.token);
