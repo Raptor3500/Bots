@@ -43,17 +43,22 @@ bot.on("message", async message => {
 
     if(command === `${prefix}kick`) {
    
-        //!kick @unrealism why not
-   
-        let kUser = message.guild.member(message.mentions.user.first() || message.guild.members.get(args[0]));
-        if(!kUser) return message.channel.send("Can't find user!")
-        let kReason = args.join(" ").slice(22);
+        //n.kick @unrealism why not
+
+        let kUser = message.guild.member(message.mentions.users.fiest() || message.guild.members.get(args[0]));
+        if(!kUser) return message.channel.send('Can\'t find user!');
+        let kReason = args.join(' ').slice(22);
+        if(!message.member.hasPermission('KICK_MEMBERS')) return message.channel.send('no');
+        if(kUser.hasPermission('KICK_MEMBERS')) return message.channel.send('That person can\'t be kicked')
     
         let kickembed = new Discord.RichEmbed()
             .setDescription("~kick~")
             .setColor("#a80b00")
-            .addFeild("Kicked User", `${kUser} with ID ${kUser.id}`)
+            .addField("Kicked User", `${kUser} with ID ${kUser.id}`)
             .addField("Kicked By", `<@${message.author.id}> with ID ${message.author.id}`);
+            .addField('Kicked In', message.channel)
+            .addField('Time', message.createdAt)
+            .addFeild('Reason', kReason);
 
         message.channel.send(kickembed);
    
