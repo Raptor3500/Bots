@@ -64,7 +64,11 @@ bot.on("message", async message => {
         message.channel.send(kickEmbed);
     
         return;
-      }
+    }
+
+    if(command === `${prefix}FUCK`) {
+        message.channel.send('Oh yes anything for you ;))))');
+    }
        
 
 });
