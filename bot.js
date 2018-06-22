@@ -125,12 +125,28 @@ bot.on("message", async message => {
     if(message.content.startsWith(`${prefix}setgame`)) {
         let playermessage = args.join(" ").slice(22);
         let game = args[0];
+        let gamestatusembed = new Discord.RichEmbed
+            .setDescription('setgame')
+            .setColor('#00FF00')
+            .addField(`Game: ${game} ${playermessage}`)
+
+        if(game == '') {
+            let gamesembed = new Discord.RichEmbed
+                .setDescription('setgame')
+                .setColor('#e56b00')
+                .addField('playing', `${prefix}setgame playing lol hi`)
+                .addField('watching', `${prefix}setgame watching myself die`)
+                .addField('listening', `${prefix}setgame listening Elohim - I Want You`)
+                .addField('streaming', `${prefix}setgame streaming with my friends https://twitch.tv/unrealismgames`);
+            
+            message.channel.send(gamesembed);
+        }
         if(game == 'playing') {
             bot.user.setPresence({
                 name: playermessage,
                 type: 0
             });
-            message.channel.send(`Okay, I've set my game to \`Playing ${playermessage}\``)
+            message.channel.send(gamestatusembed);
         }
     }
        
