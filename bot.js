@@ -57,7 +57,7 @@ bot.on("message", async message => {
 
         message.channel.send(kickembed);
    
-   return;
+        return;
    };
        
        
