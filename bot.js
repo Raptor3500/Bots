@@ -36,7 +36,7 @@ bot.on("message", async message => {
         if(message.author.id !== ownerID) {
           message.channel.send('no');
         return}
-      message.channel.send('Anything for you.');
+      message.channel.send('Requiping...');
       (msg => client.destroy());
       (() => client.login(settings.token));
     };
