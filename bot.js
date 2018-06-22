@@ -123,7 +123,7 @@ bot.on("message", async message => {
     }
 
     if(message.content.startsWith(`${prefix}setgame`)) {
-        let playermessage = args.join(' ').slice(22);
+        let playermessage = args.join(" ").slice(22);
         let game = args[0];
         if(game == 'playing') {
             bot.user.setPresence({
