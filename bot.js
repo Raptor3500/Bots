@@ -121,6 +121,16 @@ bot.on("message", async message => {
         let botmessage = args.join(' ');
         message.channel.send(botmessage);
     }
+
+    if(message.content.startsWith(`${prefix}setgame`)) {
+        let playermessage = args.join(' ').slice(22);
+        if(args == 'playing') {
+            bot.user.setPresence({
+                game: playermessage,
+                type: 0
+            })
+        }
+    }
        
 
 });
