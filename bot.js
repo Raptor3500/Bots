@@ -41,7 +41,7 @@ bot.on("message", async message => {
       (() => client.login(settings.token));
     };
 
-    if(cmd === `${prefix}kick`){
+    if(command === `${prefix}kick`){
 
         //!kick @daeshan askin for it
     
@@ -66,7 +66,7 @@ bot.on("message", async message => {
         return;
     }
 
-    if(command === `${prefix}FUCK`) {
+    if(message.content.startsWith(`${prefix}FUCK`)) {
         message.channel.send('Oh yes anything for you ;))))');
     }
        
