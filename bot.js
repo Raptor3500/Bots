@@ -34,9 +34,9 @@ bot.on("message", async message => {
     //restart - because Heroku is fun
     if(message.content.startsWith(prefix + 'restart')) {
         if(message.author.id !== ownerID) {
-          message.channel.send('Anything for you');
+          message.channel.send('no');
         return}
-      message.channel.send('Restarting...');
+      message.channel.send('Anything for you.');
       (msg => client.destroy());
       (() => client.login(settings.token));
     }
