@@ -70,12 +70,14 @@ bot.on("message", async message => {
     }
 
     if(message.content.startsWith(`${prefix}FUCK`)) {
-        message.channel.send('Oh yes anything for you ;))))');
-        if(message.author.id === '419388965238472714') {
-            message.channel.send('Nice try, pervert boi.', {
-                file: './images/unknown (14).png'
-            })
+        if(!message.author.id === '419388965238472714') {
+            message.channel.send('Oh yes anything for you ;))))', {
+                file = './images/unknown (14).png'
+            });
+        } else {
+            message.channel.send('w o t')
         }
+
     }
        
 
