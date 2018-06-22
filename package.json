@@ -1,0 +1,11 @@
+{
+  "name": "bot",
+  "version": "0.0.1",
+  "description": "Testing my skills in dJavaScript",
+  "main": "bot.js",
+  "author": "AgentHi5",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^11.3.2"
+  }
+}
