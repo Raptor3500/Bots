@@ -71,7 +71,7 @@ bot.on("message", async message => {
 
     if(message.content.startsWith(`${prefix}FUCK`)) {
         if(message.author.id !== '419388965238472714') {
-            message.channel.send('Oh Yes! Please I love it when you do that! MORE! *moans sexually* *cumming in your mouth*', {
+            message.channel.send('Oh Yes! Please I love it when you do that! MORE! *moans sexually*', {
                 file: './images/unknown (14).png'
             });
         } else {
