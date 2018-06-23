@@ -123,12 +123,12 @@ bot.on("message", async message => {
     }
 
     if(message.content.startsWith(`${prefix}setgame`)) {
-        let playermessage = args.join(" ").slice(22);
         let game = args[0];
+        let gamestatus = args.join(' ').slice(22);
         let gamestatusembed = new Discord.RichEmbed()
             .setAuthor('setgame')
             .setColor('#00FF00')
-            .addField(`Game: `, `${game} ${playermessage}`)
+            .addField(`Game: `, `${game} ${playermessage}`);
 
         if(game == '') {
             let gamesembed = new Discord.RichEmbed()
@@ -143,7 +143,7 @@ bot.on("message", async message => {
         }
         if(game == 'playing') {
             bot.user.setPresence({
-                name: playermessage,
+                name: gamestatus,
                 type: 0
             });
             message.channel.send(gamestatusembed);
