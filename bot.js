@@ -124,7 +124,7 @@ bot.on("message", async message => {
 
     if(message.content.startsWith(`${prefix}setgame`)) {
         let game = args[0];
-        let gamestatus = args.join(' ').slice(22);
+        let gamestatus = args.join(" ").slice(22);
         let gamestatusembed = new Discord.RichEmbed()
             .setAuthor('setgame')
             .setColor('#00FF00')
