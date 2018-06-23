@@ -125,13 +125,13 @@ bot.on("message", async message => {
     if(message.content.startsWith(`${prefix}setgame`)) {
         let playermessage = args.join(" ").slice(22);
         let game = args[0];
-        let gamestatusembed = new Discord.RichEmbed
+        let gamestatusembed = new Discord.RichEmbed()
             .setDescription('setgame')
             .setColor('#00FF00')
             .addField(`Game: `, args)
 
         if(game == '') {
-            let gamesembed = new Discord.RichEmbed
+            let gamesembed = new Discord.RichEmbed()
                 .setDescription('setgame')
                 .setColor('#e56b00')
                 .addField('playing', `${prefix}setgame playing lol hi`)
