@@ -128,7 +128,7 @@ bot.on("message", async message => {
         let gamestatusembed = new Discord.RichEmbed
             .setDescription('setgame')
             .setColor('#00FF00')
-            .addField(`Game: ${game} ${playermessage}`)
+            .addField(`Game: `, args)
 
         if(game == '') {
             let gamesembed = new Discord.RichEmbed
