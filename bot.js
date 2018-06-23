@@ -126,13 +126,13 @@ bot.on("message", async message => {
         let playermessage = args.join(" ").slice(22);
         let game = args[0];
         let gamestatusembed = new Discord.RichEmbed()
-            .setDescription('setgame')
+            .se('setgame')
             .setColor('#00FF00')
-            .addField(`Game: `, args)
+            .addField(`Game: `, `${game} ${playermessage}`)
 
         if(game == '') {
             let gamesembed = new Discord.RichEmbed()
-                .setDescription('setgame')
+                .setAuthor('setgame')
                 .setColor('#e56b00')
                 .addField('playing', `${prefix}setgame playing lol hi`)
                 .addField('watching', `${prefix}setgame watching myself die`)
