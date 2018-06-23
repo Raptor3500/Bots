@@ -126,7 +126,7 @@ bot.on("message", async message => {
         let playermessage = args.join(" ").slice(22);
         let game = args[0];
         let gamestatusembed = new Discord.RichEmbed()
-            .se('setgame')
+            .setAuthor('setgame')
             .setColor('#00FF00')
             .addField(`Game: `, `${game} ${playermessage}`)
 
