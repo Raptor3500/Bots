@@ -43,7 +43,7 @@ bot.on("message", async message => {
 
     if(message.content.startsWith(`${prefix}kick`)){
 
-        //!kick @unrealism Cause fuck you
+        //!kick @unrealism Because fuck you
     
         let kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
         if(!kUser) return message.channel.send("Can't find user!");
@@ -85,34 +85,41 @@ bot.on("message", async message => {
             // Sets the bot's status to idle
             if(args == 'idle') {
                 bot.user.setStatus('idle');
-                message.channel.send(`Status set to idle.`);};
+            };
 
             if(args == 'do not disturb') {
                 bot.user.setStatus('dnd')
-                message.channel.send(`Status set to ${args}`)
             }
 
             // Sets the bot's status to dnd
             if(args == 'dnd') {
                 bot.user.setStatus('dnd');
-                message.channel.send('Status set to dnd.');
             };
 
             // Sets the bot's status to invisible
             if(args == 'invisible') {
                 bot.user.setStatus('invisible');
-                message.channel.send('Status set to invisible');
             };
+            
             // Sets the bot's status to online
             if(args == 'online') {
                 bot.user.setStatus('online');
-                message.channel.send('Status set to online');
             };
+            
             // Set's bot's status to default status (aka online)
             if(args == '') {
                 bot.user.setStatus('online');
-                message.channel.send('Default status set');
             };
+
+            if(args == '') {
+                args = 'default'
+            }
+
+            let statusembed = new Discord.RichEmbed()
+                .setTitle('setstatus')
+                .addField('Status:', args);
+                
+            message.channel.send(statusembed);
         }    
     }
     
@@ -130,17 +137,6 @@ bot.on("message", async message => {
             .setColor('#00FF00')
             .addField(`Game: `, `${game} ${playermessage}`);
 
-        if(game == '') {
-            let gamesembed = new Discord.RichEmbed()
-                .setAuthor('setgame')
-                .setColor('#e56b00')
-                .addField('playing', `${prefix}setgame playing lol hi`)
-                .addField('watching', `${prefix}setgame watching myself die`)
-                .addField('listening', `${prefix}setgame listening Elohim - I Want You`)
-                .addField('streaming', `${prefix}setgame streaming with my friends https://twitch.tv/unrealismgames`);
-            
-            message.channel.send(gamesembed);
-        }
         if(game == 'playing') {
             bot.user.setPresence({
                 name: gamestatus,
