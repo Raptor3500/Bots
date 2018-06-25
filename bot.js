@@ -142,20 +142,34 @@ bot.on("message", async message => {
             .addField(`Presence:`, mesg)
             .setFooter('Original code by AgentHi5.');
 
-        if(message.author.id !== ownerID) return message.channel.send('no');
+        if(message.author.id == ownerID) return message.channel.send('no');
+        if(game == 'playing', 'streaming', 'listening', 'watching') {
+            let status = new Discord.RichEmbed
+                .setTitle('setgame')
+                .setColor('#00FF00')
+                .setAuthor('Game Status')
+                .addField('playing', `${prefix}setgame playing with air`)
+                .addField('watching', `${prefix}setgame watching nothing`)
+                .addField('listening', `${prefix}setgame listening Elohim - I Want You`)
+                .addField('streaming', `${prefix}setgame streaming with nobody`);
+            message.channel.send(status);
+        }
         if(game == 'playing') {
             bot.user.setActivity(playstatus, {type: 'PLAYING'});
+            message.channel.send(gamestatusembed);
         }
         if(game == 'listening') {
             bot.user.setActivity(listenstatus, {type: 'LISTENING'});
+            message.channel.send(gamestatusembed);
         }
         if(game == 'watching') {
             bot.user.setActivity(watchstatus, {type: 'WATCHING'});
+            message.channel.send(gamestatusembed);
         }
         if(game == 'streaming') {
             bot.user.setActivity(streamstatus, {url: 'https://twitch.tv/dryspy4', type: 'STREAMING'})
+            message.channel.send(gamestatusembed);
         }
-        message.channel.send(gamestatusembed);
     }
 
   
