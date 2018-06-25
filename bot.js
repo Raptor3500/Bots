@@ -129,7 +129,7 @@ bot.on("message", async message => {
         message.channel.send(botmessage);
     }
 
-    if(command === `${prefix}setgame`) {
+    if(message.content.startsWith(`${prefix}setgame`)) {
         let game = args[0];
         let playstatus = args.join(' ').slice(7);
         let listenstatus = args.join(' ').slice(9);
