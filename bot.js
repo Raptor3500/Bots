@@ -129,38 +129,35 @@ bot.on("message", async message => {
         message.channel.send(botmessage);
     }
 
-    if(message.content.startsWith(`${prefix}setgame`)) {
+    if(command === `${prefix}setgame`) {
         let game = args[0];
-        let gamestatus = args.join(" ").slice(22);
+        let playstatus = args.join(' ').slice(7);
+        let listenstatus = args.join(' ').slice(9);
+        let watchstatus = args.join(' ').slice(8);
+        let streamstatus = args.join(' ').slice(9);
+        let mesg = args.join(' ');
         let gamestatusembed = new Discord.RichEmbed()
-            .setAuthor('setgame')
+            .setTitle('setgame')
             .setColor('#00FF00')
-            .addField(`Game: `, `${game} ${playermessage}`);
+            .addField(`Presence:`, mesg)
+            .setFooter('Original code by AgentHi5.');
 
+        if(message.author.id !== ownerID) return message.channel.send('no');
         if(game == 'playing') {
-            bot.user.setPresence({
-                name: gamestatus,
-                type: 0
-            });
-            message.channel.send(gamestatusembed);
+            bot.user.setActivity(playstatus, {type: 'PLAYING'});
         }
+        if(game == 'listening') {
+            bot.user.setActivity(listenstatus, {type: 'LISTENING'});
+        }
+        if(game == 'watching') {
+            bot.user.setActivity(watchstatus, {type: 'WATCHING'});
+        }
+        if(game == 'streaming') {
+            bot.user.setActivity(streamstatus, {url: 'https://twitch.tv/dryspy4', type: 'STREAMING'})
+        }
+        message.channel.send(gamestatusembed);
     }
-     const Discord = require("discord.js");
 
-exports.run = async (bot, message, args, tools, con) => {
-    let help = new Discord.RichEmbed()
-        .setAuthor("List of Commands")
-        .setColor(0x703817)
-        .addField("Category 1", `${bot.commands.filter(cmd => cmd.help.category === 'Category 1').map(cmd => `\`${cmd.help.name}\``).join(", ")}`, true)
-        .addField("Category 2", `${bot.commands.filter(cmd => cmd.help.category === 'Category 2').map(cmd => `\`${cmd.help.name}\``).join(", ")}`, true)
-        .addField("Category 3", `${bot.commands.filter(cmd => cmd.help.category === 'Category 3').map(cmd => `\`${cmd.help.name}\``).join(", ")}`, true);
-    message.channel.send(help)
-}
-
-exports.help = {
-    name: "help",
-    category: "Category 1"
-}
   
 
 });
