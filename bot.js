@@ -141,14 +141,6 @@ bot.on("message", async message => {
             .setColor('#00FF00')
             .addField(`Presence:`, mesg)
             .setFooter('Original code by AgentHi5.');
-        let status = new Discord.RichEmbed
-            .setTitle('setgame')
-            .setColor('#00FF00')
-            .setAuthor('Game Status')
-            .addField('playing', `${prefix}setgame playing with air`)
-            .addField('watching', `${prefix}setgame watching nothing`)
-            .addField('listening', `${prefix}setgame listening Elohim - I Want You`)
-            .addField('streaming', `${prefix}setgame streaming with nobody`);
         
         if(message.author.id !== ownerID) return message.channel.send('no');
         if(game == 'playing') {
