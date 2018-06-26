@@ -158,16 +158,7 @@ bot.on("message", async message => {
         message.channel.send(gamestatusembed);
     }
 
-        const Discord = require("discord.js");
-    exports.run = async (bot, message, args, tools, con) => {
-        let help = new Discord.RichEmbed()
-        .setAuthor("list of commands")
-        .setColor(#e56b00)
-                  .addField("Category 1", `${bot.commands.filter(cmd => cmd.help.category === 'Category 1').map(cmd => `\`${cmd.help.name}\``).join(", ")}`, true)
-
         
-        
-  
        
 
 });
