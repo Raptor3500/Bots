@@ -141,24 +141,21 @@ bot.on("message", async message => {
             .setColor('#00FF00')
             .addField(`Presence:`, mesg)
             .setFooter('Original code by AgentHi5.');
-        
+
         if(message.author.id !== ownerID) return message.channel.send('no');
         if(game == 'playing') {
             bot.user.setActivity(playstatus, {type: 'PLAYING'});
-            message.channel.send(gamestatusembed);
         }
         if(game == 'listening') {
             bot.user.setActivity(listenstatus, {type: 'LISTENING'});
-            message.channel.send(gamestatusembed);
         }
         if(game == 'watching') {
             bot.user.setActivity(watchstatus, {type: 'WATCHING'});
-            message.channel.send(gamestatusembed);
         }
         if(game == 'streaming') {
             bot.user.setActivity(streamstatus, {url: 'https://twitch.tv/dryspy4', type: 'STREAMING'})
-            message.channel.send(gamestatusembed);
         }
+        message.channel.send(gamestatusembed);
     }
 
   
