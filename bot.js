@@ -174,6 +174,7 @@ bot.on("message", async message => {
     if(command === `${prefix}help`) {
         let helpembed = new Discord.RichEmbed
             .setTitle(`Help`)
+            .setColor(`#4286f4`)
             .addField(`Commands:`, `help - You know about this command.\nrestart - Only the owner of this bot can use this command.\nkick - You will need the "KICK_MEMBERS" permission to kick users.\nFUCK - It's pretty obvious what this command is.\nsetstatus - Sets the bot's status.\nsetgame - Sets the bot's game.`)
             .setFooter(`${message.createdAt} Don't delete this because it was a pain to make -_- `);
         message.channel.send(helpembed);
