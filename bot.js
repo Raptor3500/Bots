@@ -163,7 +163,8 @@ bot.on("message", async message => {
         let help = new Discord.RichEmbed()
         .setAuthor("list of commands")
         .setColor(#e56b00)
-                  .addField("Category 1", `${bot.commands.filter(cmd => cmd.help.category === 'Category 1').map(cmd => `\`${cmd.help.name}\``).join(", ")}`, true
+                  .addField("Category 1", `${bot.commands.filter(cmd => cmd.help.category === 'Category 1').map(cmd => `\`${cmd.help.name}\``).join(", ")}`, true)
+
         
         
   
