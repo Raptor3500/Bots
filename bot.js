@@ -158,10 +158,12 @@ bot.on("message", async message => {
         message.channel.send(gamestatusembed);
     }
 
+<<<<<<< HEAD
 
         
+=======
+>>>>>>> 8700af2d2d115942b8cc0825637b6b1a87b8cd8c
         
-  
        
 
 });
