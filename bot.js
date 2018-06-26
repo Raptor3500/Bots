@@ -32,7 +32,7 @@ bot.on("message", async message => {
     let args = messageArray.slice(1);
 
     //restart - because Heroku is fun
-    if(message.content.startsWith(prefix + 'restart')) {
+    if(command === `${prefix}restart`) {
         if(message.author.id !== ownerID) {
           message.channel.send('Only my owner can do this but nice try');
         return}
@@ -41,7 +41,7 @@ bot.on("message", async message => {
       (() => bot.login(settings.token));
     };
 
-    if(message.content.startsWith(`${prefix}kick`)){
+    if(command === `${prefix}kick`){
 
         //!kick @unrealism Because fuck you
     
@@ -69,7 +69,7 @@ bot.on("message", async message => {
         return;
     }
 
-    if(message.content.startsWith(`${prefix}FUCK`)) {
+    if(command === `${prefix}FUCK`) {
         if(message.author.id !== '419388965238472714') {
             message.channel.send('Oh Yes! Please I love it when you do that! MORE! *moans sexually*', {
                 file: './images/unknown (14).png'
@@ -123,13 +123,13 @@ bot.on("message", async message => {
         }    
     }
     
-    if(message.content.startsWith(`${prefix}say`)) {
+    if(command === `${prefix}say`) {
         message.delete(1)
         let botmessage = args.join(' ');
         message.channel.send(botmessage);
     }
 
-    if(message.content.startsWith(`${prefix}setgame`)) {
+    if(command === `${prefix}setgame`) {
         let game = args[0];
         let playstatus = args.join(' ').slice(7);
         let listenstatus = args.join(' ').slice(9);
