@@ -143,7 +143,7 @@ bot.on("message", async message => {
             .setFooter('Original code by AgentHi5.');
 
         if(message.author.id == ownerID) return message.channel.send('no');
-        if(game == 'playing', 'streaming', 'listening', 'watching') {
+        if(game !== 'playing', 'streaming', 'listening', 'watching') {
             let status = new Discord.RichEmbed
                 .setTitle('setgame')
                 .setColor('#00FF00')
