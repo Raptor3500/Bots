@@ -180,12 +180,12 @@ bot.on("message", async message => {
         message.channel.send(helpembed);
     }
     
-    if(command === `${prefix}help`) {
+    if(command === `${prefix}setnick`) {
         let nickname = args.join(' ')
         message.guild.members.get('459581230586003457') 
         .setNickname(nickname);
         await message.channel.send({
-            embed: new Discord.MessageEmbed()
+            embed: new Discord.RicEmbed()
             
             .setTitle(`Changed Server Nickname to ${nickname}`)
         })
