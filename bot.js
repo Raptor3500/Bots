@@ -6,6 +6,7 @@ const ownerID = '274298631517896704'
 const bot = new Discord.Client({disableEveryone: true});
 
 bot.on("ready", async () => {
+    bot.user.setUsername('Kahira Sashiri')
     console.log(`-----------`);
     console.log(`Bot is ready!`);
     console.log(`Bot username is: `, bot.user.username);
@@ -24,7 +25,6 @@ bot.on("ready", async () => {
 });
 
 bot.on("message", async message => {
-    bot.user.setUsername('Kahira Sashiri')
     if(message.author.bot) return;
     if(message.channel.type === "dm") return;
 
@@ -181,15 +181,6 @@ bot.on("message", async message => {
             .setFooter(`${message.createdAt} Don't delete this because it was a pain to make -_- `);
         message.channel.send(helpembed);
     }
-<<<<<<< HEAD
-=======
-    
-    // setname - change the bot's name
-    if(command === `${prefix}setname`) {
-        bot.user.setUsername(argresult);
-        message.channel.send(`I changed my username to \`${argresult}\``);
-    }
->>>>>>> 37406d5c5274d5f4a8dc540f2ac0ffd3a600a829
 
 
 
