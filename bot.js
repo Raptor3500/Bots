@@ -185,7 +185,7 @@ bot.on("message", async message => {
         message.guild.members.get('459581230586003457') 
         .setNickname(nickname);
         await message.channel.send({
-            embed: new Discord.RichEmbed()
+            embed: new Discord.MessageEmbed()
             
             .setTitle(`Changed Server Nickname to ${nickname}`)
         })
