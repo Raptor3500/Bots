@@ -183,7 +183,7 @@ bot.on("message", async message => {
 
     // setname - change the bot's name
     if(command === `${prefix}setname`) {
-        bot.user.setUsername('Kahira Sashiri');
+        bot.user.setUsername(argresult);
     }
 
 
