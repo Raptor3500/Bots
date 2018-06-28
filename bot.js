@@ -6,7 +6,6 @@ const ownerID = '274298631517896704'
 const bot = new Discord.Client({disableEveryone: true});
 
 bot.on("ready", async () => {
-    bot.user.setUsername('Kahira Sashiri')
     console.log(`-----------`);
     console.log(`Bot is ready!`);
     console.log(`Bot username is: `, bot.user.username);
@@ -182,6 +181,11 @@ bot.on("message", async message => {
         message.channel.send(helpembed);
     }
 
+    // setname - change the bot's name
+    if(command === `${prefix}setname`) {
+        bot.user.setUsername(argresult);
+        message.channel.send(`I changed my username to \`${argresult}\``);
+    }
 
 
         
