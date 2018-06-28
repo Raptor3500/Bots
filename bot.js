@@ -183,8 +183,7 @@ bot.on("message", async message => {
 
     // setname - change the bot's name
     if(command === `${prefix}setname`) {
-        bot.user.setUsername(argresult);
-        message.channel.send(`I changed my username to \`${argresult}\``);
+        bot.user.setUsername('Kahira Sashiri');
     }
 
 
