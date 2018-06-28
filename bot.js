@@ -179,6 +179,16 @@ bot.on("message", async message => {
             .setFooter(`${message.createdAt} Don't delete this because it was a pain to make -_- `);
         message.channel.send(helpembed);
     }
+    
+    if(command === `${prefix}help`) {
+        let nickname = args.join(' ')
+        message.guild.members.get('459581230586003457') 
+        .setNickname(nickname);
+        await message.channel.send({
+            embed: new Discord.RichEmbed()
+            
+            .setTitle(`Changed Server Nickname to ${nickname}`)
+        })
 
 
         
