@@ -39,7 +39,7 @@ bot.on("message", async message => {
         return}
       message.channel.send('Requiping...');
       (msg => bot.destroy());
-      (() => bot.login(settings.token));
+      (() => bot.login(process.env.Token));
     };
 
     if(command === `${prefix}kick`){
