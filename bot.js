@@ -181,6 +181,16 @@ bot.on("message", async message => {
             .setFooter(`${message.createdAt} Don't delete this because it was a pain to make -_- `);
         message.channel.send(helpembed);
     }
+<<<<<<< HEAD
+=======
+    
+    // setname - change the bot's name
+    if(command === `${prefix}setname`) {
+        bot.user.setUsername(argresult);
+        message.channel.send(`I changed my username to \`${argresult}\``);
+    }
+>>>>>>> 37406d5c5274d5f4a8dc540f2ac0ffd3a600a829
+
 
 
         
