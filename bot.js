@@ -30,6 +30,7 @@ bot.on("message", async message => {
     let messageArray = message.content.split(" ");
     let command = messageArray[0];
     let args = messageArray.slice(1);
+    let argresult = args.join(' ')
 
     //restart - because Heroku is fun
     if(command === `${prefix}restart`) {
@@ -182,8 +183,8 @@ bot.on("message", async message => {
 
     // setname - change the bot's name
     if(command === `${prefix}setname`) {
-        bot.user.setUsername(args);
-        message.channel.send(`I changed my username to \`${args}\``);
+        bot.user.setUsername(argresult);
+        message.channel.send(`I changed my username to \`${argresult}\``);
     }
 
 
