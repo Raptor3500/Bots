@@ -16,6 +16,7 @@ fs.readdir("./cmds/", (err, files) => {
         console.log("No commands to load!");
         return;
     }
+};
 
     console.log(`Loading ${jsfiles.length} command(s)!`);
 
