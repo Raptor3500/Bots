@@ -3,3 +3,7 @@ module.exports.run = async (bot, message, args) => {
   bot.user.setUsername(argresult);
   message.channel.send(`I changed my username to \`${argresult}\``);
 }
+
+module.exports.help = {
+  name: "setname"
+}
