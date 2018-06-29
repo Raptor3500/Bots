@@ -16,7 +16,6 @@ fs.readdir("./cmds/", (err, files) => {
         console.log("No commands to load!");
         return;
     }
-});
 
     console.log(`Loading ${jsfiles.length} command(s)!`);
 
@@ -25,6 +24,7 @@ fs.readdir("./cmds/", (err, files) => {
         console.log(`${i + 1}: ${f} loaded!`)
         bot.commands.set(f, props);
     });
+});
 
 bot.on("ready", async () => {
     console.log(`-----------`);
