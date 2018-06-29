@@ -56,16 +56,6 @@ bot.on("message", async message => {
     let cmd = bot.commands.get(command.slice(prefix.length));
     if(cmd) cmd.run(bot, message, args);
 
-    //restart - because Heroku is fun
-    if(command === `${prefix}restart`) {
-        if(message.author.id !== ownerID) {
-          message.channel.send('Only my owner can do this but nice try');
-        return}
-      message.channel.send('Requiping...');
-      (msg => bot.destroy());
-      (() => bot.login(process.env.Token));
-    };
-
     if(command === `${prefix}kick`){
 
         //!kick @unrealism Because fuck you
