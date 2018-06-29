@@ -25,7 +25,6 @@ fs.readdir("./cmds/", (err, files) => {
         console.log(`${i + 1}: ${f} loaded!`)
         bot.commands.set(f, props);
     });
-});
 
 bot.on("ready", async () => {
     console.log(`-----------`);
