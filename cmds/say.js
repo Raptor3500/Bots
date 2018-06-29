@@ -1,7 +1,5 @@
 module.exports.run = async (bot, message, args) => {
-    message.delete(1)
-    let botmessage = args.join(' ');
-    message.channel.send(botmessage);
+  console.log('say works!')
 }
 
 module.exports.help = {
