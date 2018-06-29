@@ -6,7 +6,7 @@ const music = require("discord.js-music-v11");
 const prefix = botSettings.prefix;
 
 const bot = new Discord.Client({disableEveryone: true});
-var commands = new Discord.Collection();
+bot.commands = new Discord.Collection();
 
 fs.readdir("./cmds/", (err, files) => {
     if(err) console.error(err);
