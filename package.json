@@ -6,6 +6,7 @@
   "author": "AgentHi5",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^11.3.2"
+    "discord.js": "^11.3.2",
+    "ytdl-core": "^0.20.4"
   }
 }

@@ -1,9 +1,29 @@
 const botSettings = require('./botsettings.json');
 const Discord = require('discord.js');
+const fs = require("fs");
+
 const prefix = botSettings.prefix;
-const ownerID = '274298631517896704'
 
 const bot = new Discord.Client({disableEveryone: true});
+var commands = new Discord.Collection();
+
+fs.readdir("./cmds/", (err, files) => {
+    if(err) console.error(err);
+
+    let jsfiles = files.filter(f => f.split(".").pop() === "js");
+    if(jsfiles.length <= 0) {
+        console.log("No commands to load!");
+        return;
+    }
+
+    console.log(`Loading ${jsfiles.length} command(s)!`);
+
+    jsfiles.forEach((f, i) => {
+        let props = require(`./cmds/${f}`);
+        console.log(`${i + 1}: ${f} loaded!`)
+        bot.commands.set(f, props);
+    });
+});
 
 bot.on("ready", async () => {
     console.log(`-----------`);
@@ -32,6 +52,9 @@ bot.on("message", async message => {
     let args = messageArray.slice(1);
     let argresult = args.join(' ')
 
+    let cmd = bot.commands.get(command.slice(prefix.length));
+    if(cmd) cmd.run(bot, message, args);
+
     //restart - because Heroku is fun
     if(command === `${prefix}restart`) {
         if(message.author.id !== ownerID) {
@@ -45,7 +68,7 @@ bot.on("message", async message => {
     if(command === `${prefix}kick`){
 
         //!kick @unrealism Because fuck you
-    
+
         let kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
         if(!kUser) return message.channel.send("Can't find user!");
         let kReason = args.join(" ").slice(22);
@@ -54,7 +77,7 @@ bot.on("message", async message => {
         if(kReason == '') {
             kReason = 'No reason was stated.'
         }
-    
+
         let kickEmbed = new Discord.RichEmbed()
             .setDescription("~Kick~")
             .setColor("#e56b00")
@@ -63,10 +86,10 @@ bot.on("message", async message => {
             .addField("Kicked In", message.channel)
             .addField("Time", message.createdAt)
             .addField("Reason", kReason);
-    
+
         message.guild.member(kUser).kick(kReason);
         message.channel.send(kickEmbed);
-    
+
         return;
     }
 
@@ -101,12 +124,12 @@ bot.on("message", async message => {
             if(args == 'invisible') {
                 bot.user.setStatus('invisible');
             };
-            
+
             // Sets the bot's status to online
             if(args == 'online') {
                 bot.user.setStatus('online');
             };
-            
+
             // Set's bot's status to default status (aka online)
             if(args == '') {
                 bot.user.setStatus('online');
@@ -119,11 +142,11 @@ bot.on("message", async message => {
             let statusembed = new Discord.RichEmbed()
                 .setTitle('setstatus')
                 .addField('Status:', args);
-                
+
             message.channel.send(statusembed);
-        }    
+        }
     }
-    
+
     if(command === `${prefix}say`) {
         message.delete(1)
         let botmessage = args.join(' ');
@@ -171,14 +194,6 @@ bot.on("message", async message => {
         message.channel.send(gamestatusembed);
     }
 
-    // help - for those people who don't have the code in front of them
-    if(command === `${prefix}help`) {
-        let helpembed = new Discord.RichEmbed
-            .setAuthor(`Help`)
-            .setColor(`#4286f4`)
-            .addField(`Commands:`, `help - You know about this command.\nrestart - Only the owner of this bot can use this command.\nkick - You will need the "KICK_MEMBERS" permission to kick users.\nFUCK - It's pretty obvious what this command is.\nsetstatus - Sets the bot's status.\nsetgame - Sets the bot's game.`)
-            .setFooter(`${message.createdAt} Don't delete this because it was a pain to make -_- `);
-        message.channel.send(helpembed);
     }
 
     // setname - change the bot's name
@@ -186,10 +201,8 @@ bot.on("message", async message => {
         bot.user.setUsername(argresult);
         message.channel.send(`I changed my username to \`${argresult}\``);
     }
-    
+
     //play
-    const Discord =require("discord.js");
-    const YTDL = require("ytdl-core");
     function play(connection, message) {
         var server = servers[message.guild.id];
         server.dispatcher = connection.playStream(YTDL(server.queue[0], {filter: "audioonly"}));
@@ -206,23 +219,23 @@ bot.on("message", async message => {
             message.channel.send("Please specify a link");
             return
         }
-        
+
         if(!message.member.voiceChannel) {
             message.channel.send("I think it may work better if you are in a voice channel!");
         }
-        
+
         if(!servers[message.guild.id]) servers[message.guild.id] = {
             queue: []
         }
         var server= servers[message.guild.id];
-        
+
         server.queue.push(args[0]);
         message.channel.send("Your song of choice is on the queue.")
         if(!message.memver.voiceConnection) message.member.voiceChannel.join()then(function(connection) {
             play(connection, message);
         })
     }
-    
+
     module.exports.help = {
         name: "play"
     }
@@ -244,7 +257,7 @@ bot.on("message", async message => {
         var server = servers[message.guild,id];
         if (server.dispatcher) server.dispatcher.end();
     }
-    
+
     module.exports.help = {
         name: "skip"
     }
@@ -267,9 +280,9 @@ bot.on("message", async message => {
     //end of script
 
 
-        
-        
-       
+
+
+
 
 });
 
