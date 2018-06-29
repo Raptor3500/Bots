@@ -197,4 +197,4 @@ bot.on("message", async message => {
 });
 
 music(bot);
-bot.login(process.env.Token)
+bot.login(process.env.Token);
