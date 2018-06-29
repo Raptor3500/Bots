@@ -186,6 +186,15 @@ bot.on("message", async message => {
         bot.user.setUsername(argresult);
         message.channel.send(`I changed my username to \`${argresult}\``);
     }
+    
+    if(command === `${prefix}owner`) {
+        if(message.author.id !== '419388965238472714') {
+            message.channel.send('This is my owner Xenzai Kansashi', {
+                file: './images/Xenzai Kansashi fixed hair.png'
+            });
+        } else {
+            message.channel.send('w o t')
+        }
 
 
 
