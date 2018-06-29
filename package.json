@@ -6,6 +6,9 @@
   "author": "AgentHi5",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^11.3.2"
+    "discord.js": "^11.3.2",
+    "discord.js-music-v11": "^1.3.4",
+    "ffmpeg-binaries": "^3.2.2-3",
+    "ytdl-core": "^0.20.4"
   }
 }
