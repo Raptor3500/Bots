@@ -1,3 +1,5 @@
+const Discord = require("discord.js");
+
 module.exports.run = async (bot, message, args) => {
     let game = args[0];
     let playstatus = args.join(' ').slice(7);
