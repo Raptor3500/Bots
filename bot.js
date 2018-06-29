@@ -45,7 +45,7 @@ bot.on("message", async message => {
     if(command === `${prefix}kick`){
 
         //!kick @unrealism Because fuck you
-    
+
         let kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
         if(!kUser) return message.channel.send("Can't find user!");
         let kReason = args.join(" ").slice(22);
@@ -54,7 +54,7 @@ bot.on("message", async message => {
         if(kReason == '') {
             kReason = 'No reason was stated.'
         }
-    
+
         let kickEmbed = new Discord.RichEmbed()
             .setDescription("~Kick~")
             .setColor("#e56b00")
@@ -63,10 +63,10 @@ bot.on("message", async message => {
             .addField("Kicked In", message.channel)
             .addField("Time", message.createdAt)
             .addField("Reason", kReason);
-    
+
         message.guild.member(kUser).kick(kReason);
         message.channel.send(kickEmbed);
-    
+
         return;
     }
 
@@ -101,12 +101,12 @@ bot.on("message", async message => {
             if(args == 'invisible') {
                 bot.user.setStatus('invisible');
             };
-            
+
             // Sets the bot's status to online
             if(args == 'online') {
                 bot.user.setStatus('online');
             };
-            
+
             // Set's bot's status to default status (aka online)
             if(args == '') {
                 bot.user.setStatus('online');
@@ -119,11 +119,11 @@ bot.on("message", async message => {
             let statusembed = new Discord.RichEmbed()
                 .setTitle('setstatus')
                 .addField('Status:', args);
-                
+
             message.channel.send(statusembed);
-        }    
+        }
     }
-    
+
     if(command === `${prefix}say`) {
         message.delete(1)
         let botmessage = args.join(' ');
@@ -180,13 +180,13 @@ bot.on("message", async message => {
             .setFooter(`${message.createdAt} Don't delete this because it was a pain to make -_- `);
         message.channel.send(helpembed);
     }
-    
+
     // setname - change the bot's name
     if(command === `${prefix}setname`) {
         bot.user.setUsername(argresult);
         message.channel.send(`I changed my username to \`${argresult}\``);
     }
-    
+
     if(command === `${prefix}owner`) {
         if(message.author.id !== '419388965238472714') {
             message.channel.send('This is my owner Xenzai Kansashi', {
@@ -195,12 +195,13 @@ bot.on("message", async message => {
         } else {
             message.channel.send('w o t')
         }
+    }
 
 
 
-        
-        
-       
+
+
+
 
 });
 
