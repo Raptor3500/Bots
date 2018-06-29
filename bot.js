@@ -186,8 +186,6 @@ bot.on("message", async message => {
         message.channel.send(gamestatusembed);
     }
 
-    }
-
     // setname - change the bot's name
     if(command === `${prefix}setname`) {
         bot.user.setUsername(argresult);
