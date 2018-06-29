@@ -186,6 +186,85 @@ bot.on("message", async message => {
         bot.user.setUsername(argresult);
         message.channel.send(`I changed my username to \`${argresult}\``);
     }
+    
+    //play
+    const Discord =require("discord.js");
+    const YTDL = require("ytdl-core");
+    function play(connection, message) {
+        var server = servers[message.guild.id];
+        server.dispatcher = connection.playStream(YTDL(server.queue[0], {filter: "audioonly"}));
+        server.queue.shift();
+        server.dispatcher.on("end", function() {
+            if(server.queue[0]) play(connection, message);
+            else connection.disconnect();
+        })
+    }
+    var servers = {};
+    module.exports.run = (bot, message, args) => {
+        //play
+        if (!args[0]) {
+            message.channel.send("Please specify a link");
+            return
+        }
+        
+        if(!message.member.voiceChannel) {
+            message.channel.send("I think it may work better if you are in a voice channel!");
+        }
+        
+        if(!servers[message.guild.id]) servers[message.guild.id] = {
+            queue: []
+        }
+        var server= servers[message.guild.id];
+        
+        server.queue.push(args[0]);
+        message.channel.send("Your song of choice is on the queue.")
+        if(!message.memver.voiceConnection) message.member.voiceChannel.join()then(function(connection) {
+            play(connection, message);
+        })
+    }
+    
+    module.exports.help = {
+        name: "play"
+    }
+    //skip
+    const Discord = require("discord.js");
+    const YTDL = require("ytdl-core");
+    function play(connection, message) {
+        var server = servers[message.guild.id];
+        server.dispatcher = connection.playStream(YTDL(server.queue[0], {filter "audioonly"}));
+        server.queue.shift();
+        server.dispatcher.on("end", function() {
+            if(server.queue[0]) play(connection, message);
+            else connection.disconnect();
+        })
+    }
+    var servers = {};
+    module.exports.rub = (bot,message,args) => {
+        //skip
+        var server = servers[message.guild,id];
+        if (server.dispatcher) server.dispatcher.end();
+    }
+    
+    module.exports.help = {
+        name: "skip"
+    }
+    //stop
+    const Discord = require("discord.js");
+    const YTDL = require("ytdl-core");
+    function play(connection, message) {
+        var server = servers[message.guild.id];
+        server.dispatcher = connection.playStream(YTDL(server.queue[0], {filter: "audioonly"}));
+        server.queue.shift();
+        server.dispatcher.on("end", function() {
+            if(server.queue[0]) play(connection, message);
+            else connection.disconnect();
+        })
+    }
+    var servers = {};
+    module.exports.help = {
+        name: "stop"
+    }
+    //end of script
 
 
         
