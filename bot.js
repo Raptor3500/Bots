@@ -36,7 +36,7 @@ bot.on("message", async message => {
     if(command === `${prefix}restart`) {
         if(message.author.id !== ownerID) {
           message.channel.send('Only my owner can do this but nice try');
-        return}
+        return};
       message.channel.send('Restarting');
       (msg => bot.destroy());
       (() => bot.login(process.env.Token));
