@@ -2,8 +2,11 @@ const botSettings = require('./botsettings.json');
 const Discord = require('discord.js');
 const prefix = botSettings.prefix;
 const ownerID = '274298631517896704'
+const token = process.env.Token
 
 const bot = new Discord.Client({disableEveryone: true});
+
+
 
 bot.on("ready", async () => {
     console.log(`-----------`);
@@ -34,13 +37,14 @@ bot.on("message", async message => {
 
     //restart - because Heroku is fun
     if(command === `${prefix}restart`) {
-        if(message.author.id !== ownerID) {
-          message.channel.send('Only my owner can do this but nice try');
-        return};
-      message.channel.send('Restarting');
-      (msg => bot.destroy());
-      (() => bot.login(process.env.Token));
-    };
+        if(message.author.id !== '228293630199070730') {
+            message.channel.send('no');
+            return}
+        message.channel.send('Restarting...');
+        console.log(`Restarting ${bot.user.username}`);
+        (msg = bot.destroy());
+        (() => bot.login(token));
+    } else
 
     if(command === `${prefix}kick`){
 
@@ -183,8 +187,13 @@ bot.on("message", async message => {
 
     // setname - change the bot's name
     if(command === `${prefix}setname`) {
+        if(message.author.id !== ownerID) {
+            message.channel.send('no');
+        } else {
+
         bot.user.setUsername(argresult);
         message.channel.send(`I changed my username to \`${argresult}\``);
+        }
     }
 
     if(command === `${prefix}owner`) {
@@ -205,4 +214,4 @@ bot.on("message", async message => {
 
 });
 
-bot.login(process.env.Token)
+bot.login(token)
