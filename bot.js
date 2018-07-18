@@ -139,10 +139,10 @@ bot.on("message", async message => {
 
     if(command === `${prefix}setgame`) {
         let game = args[0];
-        let playstatus = args.join(' ').slice(7);
-        let listenstatus = args.join(' ').slice(9);
-        let watchstatus = args.join(' ').slice(8);
-        let streamstatus = args.join(' ').slice(9);
+        let playstatus = args.join(' ').slice(8);
+        let listenstatus = args.join(' ').slice(10);
+        let watchstatus = args.join(' ').slice(9);
+        let streamstatus = args.join(' ').slice(10);
         let mesg = args.join(' ');
         let gamestatusembed = new Discord.RichEmbed()
             .setTitle('setgame')
