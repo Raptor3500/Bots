@@ -1,8 +1,8 @@
 const botSettings = require('./botsettings.json');
 const Discord = require('discord.js');
-const prefix = botSettings.prefix;
-const ownerID = '274298631517896704'
-const token = process.env.Token
+const prefix = process.env.Prefix;
+const ownerID = '274298631517896704';
+const token = process.env.Token;
 
 const bot = new Discord.Client({disableEveryone: true});
 
@@ -37,7 +37,7 @@ bot.on("message", async message => {
 
     //restart - because Heroku is fun
     if(command === `${prefix}restart`) {
-        if(message.author.id !== '228293630199070730') {
+        if(message.author.id !== ownerID) {
             message.channel.send('no');
             return}
         message.channel.send('Restarting...');
@@ -72,6 +72,7 @@ bot.on("message", async message => {
         message.channel.send(kickEmbed);
 
         return;
+        // Original code by {TheSourceCode}
     }
 
     if(command === `${prefix}FUCK`) {
@@ -82,7 +83,7 @@ bot.on("message", async message => {
         } else {
             message.channel.send('w o t')
         }
-
+        // Why?
     }
 
     if(command === `${prefix}setstatus`) {
@@ -125,6 +126,7 @@ bot.on("message", async message => {
                 .addField('Status:', args);
 
             message.channel.send(statusembed);
+            // Original code by AgentHi5
         }
     }
 
@@ -132,6 +134,7 @@ bot.on("message", async message => {
         message.delete(1)
         let botmessage = args.join(' ');
         message.channel.send(botmessage);
+        // Original code by AgentHi5.
     }
 
     if(command === `${prefix}setgame`) {
@@ -173,6 +176,7 @@ bot.on("message", async message => {
             bot.user.setActivity(streamstatus, {url: 'https://twitch.tv/dryspy4', type: 'STREAMING'})
         }
         message.channel.send(gamestatusembed);
+        // Original code by AgentHi5.
     }
 
     // help - for those people who don't have the code in front of them
@@ -187,6 +191,7 @@ bot.on("message", async message => {
 
     // setname - change the bot's name
     if(command === `${prefix}setname`) {
+        // ${prefix}setname {name}
         if(message.author.id !== ownerID) {
             message.channel.send('no');
         } else {
@@ -194,8 +199,9 @@ bot.on("message", async message => {
         bot.user.setUsername(argresult);
         message.channel.send(`I changed my username to \`${argresult}\``);
         }
+        // Original code by AgentHi5
     }
-
+    // owner - To give attention to my selfish owner
     if(command === `${prefix}owner`) {
         if(message.author.id !== '419388965238472714') {
             message.channel.send('This is my owner Xenzai Kansashi', {
