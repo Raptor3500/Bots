@@ -1,4 +1,3 @@
-const botSettings = require('./botsettings.json');
 const Discord = require('discord.js');
 const prefix = process.env.Prefix;
 const ownerID = '274298631517896704';
