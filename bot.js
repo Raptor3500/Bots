@@ -207,7 +207,7 @@ bot.on("message", async message => {
                 file: './images/Xenzai Kansashi fixed hair.png'
             });
         } else {
-            message.channel.send('w o t')
+            message.channel.send('You are my owner silly')
         }
     }
 
