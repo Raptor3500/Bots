@@ -202,7 +202,7 @@ bot.on("message", async message => {
     }
     // owner - To give attention to my selfish owner
     if(command === `${prefix}owner`) {
-        if(message.author.id !== OwnerID) {
+        if(message.author.id !== ownerID) {
             message.channel.send('This is my owner Xenzai Kansashi', {
                 file: './images/Xenzai Kansashi fixed hair.png'
             });
