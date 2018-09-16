@@ -211,7 +211,7 @@ bot.on("message", async message => {
             message.channel.send('You are my owner silly')
         }
         // Music Commands
-        funtion play(connection, message) {
+        function play(connection, message) {
             var server = servers[message.guild.id];
             server.dispatcher = connection.playStream(YTDL(server.queue[0], {
                 filter: "audioonly"
