@@ -303,11 +303,4 @@ bot.on("message", async message => {
             break;
         }
               
-
-
-
-
-
-
-});
 bot.login(token)
