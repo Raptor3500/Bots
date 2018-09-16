@@ -302,8 +302,6 @@ bot.on("message", async message => {
             message.channel.send('``The song is sucessfully continued.``');
             break;
         }
-    }
-
               
 
 
