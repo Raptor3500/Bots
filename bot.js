@@ -219,7 +219,7 @@ bot.on("message", async message => {
             
             server.queue.shift();
             
-            server.dispatcher.on("end", fuction() {
+            server.dispatcher.on("end", function() {
                 if (server.queue[0]) play(connection, message);
             else connection.disconnect();
         });
