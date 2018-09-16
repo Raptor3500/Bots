@@ -209,3 +209,14 @@ bot.on("message", async message => {
         } else {
             message.channel.send('You are my owner silly')
         }
+    }
+
+
+
+
+
+
+
+});
+
+bot.login(token)
